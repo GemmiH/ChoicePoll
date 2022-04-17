@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [list, setList] =  useState([]);
-  const [question, setQuestion] =  useState(1);
+  const [question, setQuestion] =  useState(3);
 
   useEffect(() => {
     const getRecords = async () => {
@@ -90,14 +90,16 @@ function App() {
             paddingLeft: "20px", 
             paddingTop: "10px"
           }}>
-            Hamburger or Pizza?
+            {
+              list.question 
+            }
           </Row>
           <Row style={{height: "190px",
             paddingTop:"30px",
             justifyContent:"center",
           }}>
-            <Button style={{height:"60px",borderRadius:"10px"}}><h1>🍔</h1></Button>
-            <Button style={{height:"60px",borderRadius:"10px"}}><h1>🍕</h1></Button>
+            <Button style={{height:"60px",borderRadius:"10px"}}><h1>{list.choice1}</h1></Button>
+            <Button style={{height:"60px",borderRadius:"10px"}}><h1>{list.choice2}</h1></Button>
           </Row>
       </Col>
 

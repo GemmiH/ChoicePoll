@@ -38,7 +38,8 @@ function App() {
         setList(response.data);
     })
     .catch(error => console.log('error', error));
-  };
+};
+
 
   return (
     <div className="App">
@@ -48,7 +49,8 @@ function App() {
             fontSize: "20px",
             paddingLeft: "10px",
             paddingTop: "10px",
-            paddingBottom: "9px"          }}
+            paddingBottom: "9px"          
+          }}
         ><SmileOutlined /></Col>
         
         <Col span={16} 
@@ -65,26 +67,41 @@ function App() {
       style={{
         fontSize:"25px",
         paddingLeft: "10px",
-
-      }
-      }
+      }}
       >Choice Poll</Col>
-        
-       
     </Row>
-      <Row>
-        <Col span={24}
-          style={{backgroundColor: "#6CC6F5",
-            color: "#pOff00",
-            fontsize: "65px" ,
-            fontFamily: "cursive",
-            paddingLeft: "25px",
-            fontWeight: "800",
-            textAlign: "left", rightalign: "leftborder(2.05)",
-            borderRadius: "10px",
-            margin: "10px",
+    <Row style={{padding: "20px"}}>
+      <Col span={24}
+        style={{backgroundColor: "#6CC6F5",
+          color: "#pOff00",
+          fontsize: "65px" ,
+          fontWeight: "800",
+          textAlign: "left", rightalign: "leftborder(2.05)",
+          borderRadius: "10px",
+        }}
+      >
+        <Row style={{padding: "40px"}}></Row>
+        <Row 
+          style={{
+            backgroundColor: "#fff",
+            paddingInline: "25px",
+            paddingBlock: "20px",
+            fontSize: "30px",
           }}
         >
+          {list.question}
+        </Row>
+        <Row style={{paddingBlock: "50px", 
+          justifyContent: "center",
+          
+        }}>
+          <Button style={{height: "50px"}} onClick={() => setRecords(1, 0)}><h1>
+            {list.choice1_count + " " + list.choice1}
+          </h1></Button>
+          <Button style={{height: "50px"}} onClick={() => setRecords(0, 1)}><h1>
+            {list.choice2_count + " " + list.choice2}
+          </h1></Button>
+        </Row>
         Poll {console.log(list)}
       </Col>
     </Row>

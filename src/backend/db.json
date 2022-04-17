@@ -1,0 +1,20 @@
+{
+  "questions": [
+    {
+      "question": "Brown Bear or Polar Bear?",
+      "choice1": "🐻",
+      "choice1_count": 1,
+      "choice2": "🐻‍❄️",
+      "choice2_count": 3,
+      "id": 1
+    },
+    {
+      "question": "Panda or Koala?",
+      "choice1": "🐼",
+      "choice1_count": 6,
+      "choice2": "🐨",
+      "choice2_count": 1,
+      "id": 2
+    }
+  ]
+}

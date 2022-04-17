@@ -40,6 +40,7 @@ function App() {
     .catch(error => console.log('error', error));
 };
 
+
   return (
     <div className="App">
       <Row>
@@ -101,6 +102,7 @@ function App() {
             {list.choice2_count + " " + list.choice2}
           </h1></Button>
         </Row>
+        Poll {console.log(list)}
       </Col>
     </Row>
 

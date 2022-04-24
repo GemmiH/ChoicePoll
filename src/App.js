@@ -63,24 +63,21 @@ function App() {
         >Suggest poll</Col>
       </Row>
       <Row>
-      <Col span={24} 
-      style={{
-        fontSize:"25px",
-        paddingLeft: "10px",
-      }}
-      >Choice Poll</Col>
-    </Row>
-      <Row>
+        <Col span={24} 
+        style={{
+          fontSize:"25px",
+          paddingLeft: "10px",
+        }}
+        >Choice Poll</Col>
+      </Row>
+      <Row style={{padding: "10px"}}>
         <Col span={24}
           style={{backgroundColor: "#6CC6F5",
             color: "#pOff00",
             fontsize: "65px" ,
-            //fontFamily: "Comic Sans",
-            //paddingLeft: "25px",
             fontWeight: "600",
             textAlign: "left", rightalign: "leftborder(2.05)",
             borderRadius: "10px",
-            margin: "10px",
           }}
         >
           <Row style={{height: "70px"}}></Row>
@@ -111,12 +108,8 @@ function App() {
             </h1>
             </Button>
           </Row>
-      </Col>
-
-
-
-    </Row>
-
+        </Col>
+      </Row>
     </div>
   );
 }

@@ -5,10 +5,12 @@ import { Row, Col, Button } from 'antd';
 import {SmileOutlined} from '@ant-design/icons';
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Confetti from 'react-confetti';
 
 function App() {
   const [list, setList] =  useState([]);
-  const [question, setQuestion] =  useState(3);
+  const [question, setQuestion] =  useState(4);
+  const [choiceMade, setchoiceMade] = useState(false);
 
   useEffect(() => {
     const getRecords = async () => {
@@ -23,21 +25,24 @@ function App() {
   }, []);
 
   const setRecords = async (c1, c2) => {
-    axios.put("https://industrious-protective-hawk.glitch.me/questions/" + question, 
-    {
-      question: list.question,
-      choice1: list.choice1,
-      choice1_count: list.choice1_count+c1,
-      choice2: list.choice2,
-      choice2_count: list.choice2_count+c2,
-      id: list.id
+    if(choiceMade === false){
+      axios.put("https://industrious-protective-hawk.glitch.me/questions/" + question, 
+      {
+        question: list.question,
+        choice1: list.choice1,
+        choice1_count: list.choice1_count+c1,
+        choice2: list.choice2,
+        choice2_count: list.choice2_count+c2,
+        id: list.id
+      }
+      )
+      .then(response => {
+          console.log(response.data)
+          setList(response.data);
+      })
+      .catch(error => console.log('error', error));
     }
-    )
-    .then(response => {
-        console.log(response.data)
-        setList(response.data);
-    })
-    .catch(error => console.log('error', error));
+    setchoiceMade(true);
 };
 
 
@@ -60,7 +65,7 @@ function App() {
            paddingRight: "10px",
            paddingTop: "13px"
          }}
-        >Suggest poll</Col>
+        ></Col>
       </Row>
       <Row>
         <Col span={24} 
@@ -98,18 +103,30 @@ function App() {
             <Button style={{height:"60px",borderRadius:"10px"}}
               onClick={() => setRecords(1, 0)}
             ><h1>
-              {list.choice1_count}{list.choice1}
+              {choiceMade === true ?
+              parseInt(0.5+(list.choice1_count/(list.choice1_count+list.choice2_count))*100)+'%'
+              :""}
+              {list.choice1}
               </h1>
             </Button>
             <Button style={{height:"60px",borderRadius:"10px"}}
               onClick={() => setRecords(0, 1)}
             ><h1>
-              {list.choice2_count}{list.choice2}
+              {choiceMade === true ?
+              parseInt(0.5+(list.choice2_count/(list.choice1_count+list.choice2_count))*100)+'%'
+              :""}
+              {list.choice2}
             </h1>
             </Button>
           </Row>
         </Col>
       </Row>
+      {choiceMade === true ?
+      <Confetti
+      width={"1000px"}
+      height={"1000px"}
+      />
+      :null}
     </div>
   );
 }

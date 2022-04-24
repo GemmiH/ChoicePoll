@@ -1,0 +1,24 @@
+Varaibles:
+choice1_count
+choice2_count
+
+Operations:
++ plus
+- minus
+* multiply
+/ divide
+
+Examples:
+choice1_count + choice2_count
+
+Your Work:
+Percent of choice 1
+
+(choice1_count/(choice1_count+choice2_count))*100
+
+5/2+3 = 2.5 + 3 = 5.5
+5/(2+3) = 5 / 5 = 1
+
+Percent of choice  2
+(choice2_count/(choice1_count+choice2_count))*100
+

@@ -98,8 +98,18 @@ function App() {
             paddingTop:"30px",
             justifyContent:"center",
           }}>
-            <Button style={{height:"60px",borderRadius:"10px"}}><h1>{list.choice1}</h1></Button>
-            <Button style={{height:"60px",borderRadius:"10px"}}><h1>{list.choice2}</h1></Button>
+            <Button style={{height:"60px",borderRadius:"10px"}}
+              onClick={() => setRecords(1, 0)}
+            ><h1>
+              {list.choice1_count}{list.choice1}
+              </h1>
+            </Button>
+            <Button style={{height:"60px",borderRadius:"10px"}}
+              onClick={() => setRecords(0, 1)}
+            ><h1>
+              {list.choice2_count}{list.choice2}
+            </h1>
+            </Button>
           </Row>
       </Col>
 

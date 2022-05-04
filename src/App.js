@@ -9,7 +9,7 @@ import Confetti from 'react-confetti';
 
 function App() {
   const [list, setList] =  useState([]);
-  const [question, setQuestion] =  useState(4);
+  const [question, setQuestion] =  useState(5);
   const [choiceMade, setchoiceMade] = useState(false);
 
   useEffect(() => {
